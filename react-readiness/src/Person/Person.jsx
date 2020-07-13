@@ -1,6 +1,5 @@
 import React from 'react';
 const Person = (props) => {  
-    console.log(props)  ;
     return (
         <div>
             <h2>Person Details</h2>
