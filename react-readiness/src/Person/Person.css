@@ -1,7 +1,23 @@
 .Person {
     width: 33%;
-    background: #dadada;
+    background: #f5f5f5;
     border: 1px solid #eeee;
     padding: 10px;
-    margin: 5px auto;
+    margin: 0px auto 10px;
+}
+
+.Person label {
+    color: darkslategray;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.Person input {
+    padding: 7px 10px;
+    outline: 0;
+    font-size: 12px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    color: darkslategray;
+    min-width: 150px;
 }
