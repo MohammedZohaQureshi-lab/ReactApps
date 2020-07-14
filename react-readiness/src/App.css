@@ -20,15 +20,15 @@ body {
   padding: 10px 0;
 }
 
+input, button {
+  outline: 0;
+}
+
 .person-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 10px;
   padding: 10px;
-}
-
-input, button {
-  outline: 0;
 }
 
 @media (max-width:1300px) {

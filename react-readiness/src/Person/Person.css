@@ -1,13 +1,13 @@
-.person {
+/* .person {
     width: 100%;
     background: #fff;
     border: 1px solid #eeee;
     padding:10px 0 20px;
     margin-bottom: 10px;
     border-radius: 4px;
-}
+} */
 
-.Perpersonson label {
+.person label {
     color: darkslategray;
     font-size: 16px;
     margin-right: 5px;
