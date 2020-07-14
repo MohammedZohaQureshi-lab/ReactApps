@@ -36,8 +36,6 @@ class App extends Component {
       showPersons: !toggleShow
     })
   }
-
-
   render() {
     const style = {
       minWidth: '100px',
@@ -49,6 +47,7 @@ class App extends Component {
       color: 'white',
       margin: '5px'
     }
+    let classes = ['bold' ,'red'];
 
     let persons = null;
     if (this.state.showPersons) {
@@ -56,10 +55,15 @@ class App extends Component {
         {this.state.persons.map((el, i) => {
           return <Person key={el.id} name={el.name} age={el.age} changeHandler={(event) => this.changeNameHandler(event, el.id)} click={this.deletePersonHandler} />
         })}
-      </div>)
+      </div>
+      )
+      style.backgroundColor = "green";
+      classes.pop();
     }
+
     return (<div className="App">
       <h1>My React App</h1>
+      <p className={classes.join(' ')}>It's Working</p>
       <button style={style} onClick={this.togglePersonsHandler}>Toggle Element</button>
       {persons}
     </div>);

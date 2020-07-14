@@ -21,3 +21,11 @@
     color: darkslategray;
     min-width: 150px;
 }
+
+.red {
+    color: red;
+}
+
+.bold {
+    font-weight: bold;
+}
