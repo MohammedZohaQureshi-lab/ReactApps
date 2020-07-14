@@ -1,18 +1,19 @@
-.Person {
-    width: 33%;
-    background: #f5f5f5;
+.person {
+    width: 100%;
+    background: #fff;
     border: 1px solid #eeee;
-    padding: 10px;
-    margin: 0px auto 10px;
+    padding:10px 0 20px;
+    margin-bottom: 10px;
+    border-radius: 4px;
 }
 
-.Person label {
+.Perpersonson label {
     color: darkslategray;
     font-size: 16px;
     margin-right: 5px;
 }
 
-.Person input {
+.person input {
     padding: 7px 10px;
     outline: 0;
     font-size: 12px;

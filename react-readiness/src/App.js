@@ -1,7 +1,6 @@
 //import React, { useState } from 'react';
 import React, { Component } from 'react';
 import Person from './Person/Person';
-import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import './Person/Person.css';
 
@@ -10,7 +9,8 @@ class App extends Component {
     persons: [
       { id: "asvh", name: "Max", age: 25 },
       { id: "jsde", name: "Mia", age: 19 },
-      { id: "ntfg", name: "Tony", age: 42 }
+      { id: "ntfg", name: "Tony", age: 42 },
+      { id: "xsna", name: "Jane", age: 21 }
     ],
     showPersons: false
   }
@@ -46,40 +46,32 @@ class App extends Component {
       cursor: 'pointer',
       backgroundColor: '#2196F3',
       color: 'white',
-      margin: '5px',
-      ':hover': {
-        backgroundColor: '#003865'
-      }
+      margin: '5px'
     }
-    let classes = ['bold', 'red'];
+    let classes = ['bold' ,'red'];
 
     let persons = null;
     if (this.state.showPersons) {
-      persons = (<div>
+      persons = (<div className="person-wrapper">
         {this.state.persons.map((el, i) => {
           return <Person key={el.id} name={el.name} age={el.age} changeHandler={(event) => this.changeNameHandler(event, el.id)} click={this.deletePersonHandler} />
         })}
       </div>
       )
       style.backgroundColor = "green";
-      style[':hover'].backgroundColor = '#024c01';
       classes.pop();
     }
 
-    return (
-      <StyleRoot>
-        <div className="App">
-          <h1>My React App</h1>
-          <p className={classes.join(' ')}>It's Working</p>
-          <button style={style} onClick={this.togglePersonsHandler}>Toggle Element</button>
-          {persons}
-        </div>
-      </StyleRoot>
-    );
+    return (<div className="App">
+      <h1>My React App</h1>
+      <p className={classes.join(' ')}>It's Working</p>
+      <button style={style} onClick={this.togglePersonsHandler}>Toggle Element</button>
+      {persons}
+    </div>);
   }
 }
 
-export default Radium(App);
+export default App;
 
 
 // const App = props => {
