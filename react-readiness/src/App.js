@@ -1,9 +1,10 @@
-//import React, { useState } from 'react';
 import React, { Component } from 'react';
-import Person from './Person/Person';
-import styled from 'styled-components';
+//import React, { useState } from 'react';
+import Persons from './components/Persons/Persons';
+import Cockpit from './components/Cockpit/Cockpit'
 import './App.css';
-import './Person/Person.css';
+import classes from './App.css';
+
 
 class App extends Component {
   state = {
@@ -40,28 +41,15 @@ class App extends Component {
   }
 
   render() {
-    let classes = ['bold', 'red'];
-
     let persons = null;
     if (this.state.showPersons) {
-      persons = (<div className="person-wrapper">
-        {this.state.persons.map((el, i) => {
-          return <Person key={el.id} name={el.name} age={el.age} changeHandler={(event) => this.changeNameHandler(event, el.id)} click={this.deletePersonHandler} />
-        })}
-      </div>
-      )
-
-      classes.pop();
+      persons = <div className={classes.personWrapper}><Persons persons={this.state.persons} changed={this.changeNameHandler} click={this.deletePersonHandler} /></div>
     }
 
     return (
 
-      <div className="App">
-        <h1>My React App</h1>
-        <p className={classes.join(' ')}>It's Working</p>
-        <button onClick={this.togglePersonsHandler}>
-          Toggle Element
-        </button>
+      <div className={classes.App}>
+        <Cockpit clicked={this.togglePersonsHandler} showPersons={this.state.showPersons} />
         {persons}
       </div>
     );
@@ -97,9 +85,9 @@ export default App;
 //     <div className="App">
 //       <h1>My React App</h1>
 //       <button onClick={switchNameHandler}>Switch NAme</button>
-//       <Person click={this.switchNameHandler} name={personState.persons[0].name} age={personState.persons[0].age} />
-//       <Person name={personState.persons[1].name} age={personState.persons[1].age} />
-//       <Person name={personState.persons[2].name} age={personState.persons[2].age} />
+//       <Persons click={this.switchNameHandler} name={personState.persons[0].name} age={personState.persons[0].age} />
+//       <Persons name={personState.persons[1].name} age={personState.persons[1].age} />
+//       <Persons name={personState.persons[2].name} age={personState.persons[2].age} />
 //     </div>
 //   );
 
