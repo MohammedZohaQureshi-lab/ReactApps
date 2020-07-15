@@ -1,6 +1,7 @@
 //import React, { useState } from 'react';
 import React, { Component } from 'react';
 import Person from './Person/Person';
+import styled from 'styled-components';
 import './App.css';
 import './Person/Person.css';
 
@@ -37,17 +38,8 @@ class App extends Component {
       showPersons: !toggleShow
     })
   }
+
   render() {
-    const style = {
-      minWidth: '100px',
-      border: 'none',
-      borderRadius: '4px',
-      padding: '10px',
-      cursor: 'pointer',
-      backgroundColor: '#2196F3',
-      color: 'white',
-      margin: '5px'
-    }
     let classes = ['bold', 'red'];
 
     let persons = null;
@@ -58,18 +50,20 @@ class App extends Component {
         })}
       </div>
       )
-      style.backgroundColor = "green";
+
       classes.pop();
     }
 
     return (
-      
-    <div className="App">
-      <h1>My React App</h1>
-      <p className={classes.join(' ')}>It's Working</p>
-      <button style={style} onClick={this.togglePersonsHandler}>Toggle Element</button>
-      {persons}
-    </div>
+
+      <div className="App">
+        <h1>My React App</h1>
+        <p className={classes.join(' ')}>It's Working</p>
+        <button onClick={this.togglePersonsHandler}>
+          Toggle Element
+        </button>
+        {persons}
+      </div>
     );
   }
 }
