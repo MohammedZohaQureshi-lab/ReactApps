@@ -7,6 +7,10 @@ import classes from './App.css';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('[App.js] Constructor')
+  }
   state = {
     persons: [
       { id: "asvh", name: "Max", age: 25 },
@@ -16,6 +20,7 @@ class App extends Component {
     ],
     showPersons: false
   }
+
   deletePersonHandler = (personIndex) => {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
@@ -41,19 +46,25 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js]  render Method')
     let persons = null;
     if (this.state.showPersons) {
       persons = <div className={classes.personWrapper}><Persons persons={this.state.persons} changed={this.changeNameHandler} click={this.deletePersonHandler} /></div>
     }
 
     return (
-
       <div className={classes.App}>
-        <Cockpit clicked={this.togglePersonsHandler} showPersons={this.state.showPersons} />
+        <Cockpit clicked={this.togglePersonsHandler} title={this.props.appTitle} showPersons={this.state.showPersons} />
         {persons}
       </div>
     );
   }
+  componentDidMount() {
+    console.log('[App.js]  ComponentDidMount Method')
+  }
+  // componentWillMount() {
+  //   console.log('[App.js]  componentWillMount Method')
+  // }
 }
 
 export default App;
