@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
 const Cockpit = props => {
+    useEffect(() => {
+        console.log('[Cocpit.js] Use effect');
+        setTimeout(() => {
+            alert("Data Saved")
+        }, 1000);
+        return ()=>{
+            console.log('Cockpit.js Cleanup Use effect')
+        }
+    },[]);
+
+    useEffect(() => {
+        console.log('[Cocpit.js] @2nd Use effect');
+        return ()=>{
+            console.log('Cockpit.js @2nd Cleanup Use effect')
+        }
+    });
+
     let assignedClasses = [];
     let btnClass = [];
     if (props.showPersons) {
@@ -9,8 +26,7 @@ const Cockpit = props => {
     }
     else {
         assignedClasses = [classes.Bold, classes.ColorRed];
-        btnClass = [classes.Button];
-
+        btnClass = [classes.Button]
     }
     return (
         <div className={classes.Cockpit}>
@@ -24,4 +40,4 @@ const Cockpit = props => {
 
 }
 
-export default Cockpit;
+export default React.memo(Cockpit);
