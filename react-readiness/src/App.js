@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 //import React, { useState } from 'react';
 import Persons from './components/Persons/Persons';
 import Cockpit from './components/Cockpit/Cockpit'
@@ -56,11 +56,11 @@ class App extends Component {
     }
 
     return (
-      <Fragment>
+      <Aux>
         {this.state.showCockpit ? <button onClick={() => this.setState({ showCockpit: false })}> Remove Cockpit</button> : null}
         {this.state.showCockpit ? <Cockpit clicked={this.togglePersonsHandler} title={this.props.appTitle} personsLength={this.state.persons.length} showPersons={this.state.showPersons} /> : null}
         {persons}
-      </Fragment>
+      </Aux>
     );
   }
   componentDidMount() {

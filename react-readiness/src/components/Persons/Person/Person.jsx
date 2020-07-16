@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import classes from './Person.css';
-import Aux from '../../../hoc/Auxiliary'
+import Aux from '../../../hoc/Auxiliary';
+import withClass from '../../../hoc/withClass';
 
 class Persons extends Component {
     render() {
         console.log('[Person.js] render Method');
+        console.log(this.props ,"Checking Value");
         return (
             <Aux>
                 <div className={classes.Person}>
@@ -22,4 +24,4 @@ class Persons extends Component {
     }
 };
 
-export default Persons;
+export default withClass(Persons,null);
