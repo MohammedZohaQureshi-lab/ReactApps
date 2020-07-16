@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 //import React, { useState } from 'react';
 import Persons from './components/Persons/Persons';
 import Cockpit from './components/Cockpit/Cockpit'
+import withClass from './hoc/withClass';
+import Aux from './hoc/Auxiliary';
 import './App.css';
 import classes from './App.css';
 
@@ -54,11 +56,11 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
-        {this.state.showCockpit ?<button onClick={() => this.setState({ showCockpit: false })}> Remove Cockpit</button>:null}
+      <Fragment>
+        {this.state.showCockpit ? <button onClick={() => this.setState({ showCockpit: false })}> Remove Cockpit</button> : null}
         {this.state.showCockpit ? <Cockpit clicked={this.togglePersonsHandler} title={this.props.appTitle} personsLength={this.state.persons.length} showPersons={this.state.showPersons} /> : null}
         {persons}
-      </div>
+      </Fragment>
     );
   }
   componentDidMount() {
@@ -69,7 +71,7 @@ class App extends Component {
   // }
 }
 
-export default App;
+export default withClass(App,classes.App);
 
 
 // const App = props => {
