@@ -21,7 +21,8 @@ class App extends Component {
       { id: "xsna", name: "Jane", age: 21 }
     ],
     showPersons: true,
-    showCockpit: true
+    showCockpit: true,
+    changeCounter: 0
   }
 
   deletePersonHandler = (personIndex) => {
@@ -38,7 +39,10 @@ class App extends Component {
     changedPerson.name = event.target.value;
     const persons = [...this.state.persons];
     persons[personIndex] = changedPerson
-    this.setState({ persons })
+    this.setState((prevState, props) => ({
+      persons,
+      changeCounter: prevState.changeCounter + 1
+    }))
   }
 
   togglePersonsHandler = () => {
@@ -71,7 +75,7 @@ class App extends Component {
   // }
 }
 
-export default withClass(App,classes.App);
+export default withClass(App, classes.App);
 
 
 // const App = props => {

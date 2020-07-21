@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import classes from './Person.css';
 import Aux from '../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
+import PropTypes from 'prop-types';
 
-class Persons extends Component {
+class Person extends Component {
     render() {
         console.log('[Person.js] render Method');
-        console.log(this.props ,"Checking Value");
+        console.log(this.props, "Checking Value");
         return (
             <Aux>
                 <div className={classes.Person}>
@@ -23,5 +24,10 @@ class Persons extends Component {
         );
     }
 };
+Person.propTypes={
+    clicked:PropTypes.func,
+    name:PropTypes.string,
+    age:PropTypes.number
+}
 
-export default withClass(Persons,null);
+export default withClass(Person, null);
