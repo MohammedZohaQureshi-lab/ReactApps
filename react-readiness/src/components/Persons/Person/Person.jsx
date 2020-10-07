@@ -5,6 +5,9 @@ import withClass from '../../../hoc/withClass';
 import PropTypes from 'prop-types';
 
 class Person extends Component {
+    componentDidMount(){
+       this.inputElement.focus();
+    }
     render() {
         console.log('[Person.js] render Method');
         console.log(this.props, "Checking Value");
@@ -16,7 +19,9 @@ class Person extends Component {
             </p>
                     <div>
                         <label>Edit Name</label>
-                        <input type="text" onChange={this.props.changeHandler} value={this.props.name} />
+                        <input
+                        ref={(inputEL)=>{this.inputElement= inputEL}}
+                         type="text" onChange={this.props.changeHandler} value={this.props.name} />
                     </div>
                     <div>{this.props.children}</div>
                 </div>
